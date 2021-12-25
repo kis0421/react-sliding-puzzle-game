@@ -1,23 +1,22 @@
-import * as React from "react";
+import React, { useState } from "react";
 import NavigationHeader from "./components/NavigationHeader";
 import Tile from "./components/Tile";
+import { shuffle, divisionArray } from "./utils"
 
 const App = () => {
+  const row = 4;
+  const defaultTiles = divisionArray(shuffle([0, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 15]), row)
+  const [tiles, setTiles] = useState(defaultTiles)
+
   return <div id="slidingPuzzleWrap">
     <NavigationHeader />
-    <div className="puzzleRowWrap">
-      <Tile tileNumber={1} />
-      <Tile tileNumber={2} />
-      <Tile tileNumber={9} />
-      <Tile tileNumber={13} />
-    </div>
-    <div className="puzzleRowWrap">
-      <Tile tileNumber={3} />
-      <Tile tileNumber={5} />
-      <Tile tileNumber={8} />
-      <Tile tileNumber={15} />
-    </div>
-
+    {tiles.map((puzzleWrap, index) => {
+      return <div className="puzzleRowWrap" key={index}>
+        {puzzleWrap.map((tile) => {
+          return <Tile tileNumber={tile} key={tile} />
+        })}
+      </div>
+    })}
   </div>;
 }
 export default App;
