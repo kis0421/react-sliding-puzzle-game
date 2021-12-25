@@ -4,9 +4,33 @@
 }
 
 #slidingPuzzleWrap{
-  display: flex;
   max-width: 500px;
   height: 100%;
   margin: 0 auto;
   outline: 1px solid #dedede;
+}
+
+.puzzleRowWrap{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.tile {
+  flex-grow: 1;
+  display: flex;
+  margin: 6px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  outline: 1px solid #adadad;
+}
+.tile::after{
+  content:"";
+  display:block;
+  padding-bottom: 100%;
+}
+.tile > span {
+  position: absolute;
+
 }
