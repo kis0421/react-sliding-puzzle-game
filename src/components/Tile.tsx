@@ -1,8 +1,10 @@
 import * as React from "react";
 
-const Tile = () => {
+const Tile = (props: { tileNumber: number }) => {
+  const { tileNumber } = props;
+
   return <div className="tile">
-    <span>1</span>
+    <span>{tileNumber}</span>
   </div>
 }
 export default Tile;
