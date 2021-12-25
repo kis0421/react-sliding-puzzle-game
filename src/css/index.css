@@ -46,5 +46,7 @@
   position: absolute;
   font-size: 3em;
   color:#99ccff;;
-
+}
+.tile-hide{
+  visibility: hidden;
 }
