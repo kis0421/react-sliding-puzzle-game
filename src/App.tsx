@@ -13,7 +13,7 @@ const App = () => {
     {tiles.map((puzzleWrap, index) =>
       <div className="puzzleRowWrap" key={index}>
         {puzzleWrap.map((tile) => {
-          return <Tile tileNumber={tile} key={tile} />
+          return <Tile tileNumber={tile} key={tile} tileState={tiles} setTileState={setTiles}/>
         })}
       </div>)}
   </div>;
