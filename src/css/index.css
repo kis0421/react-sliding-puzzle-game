@@ -44,7 +44,7 @@
 }
 .tile > span {
   position: absolute;
-  font-size: 3em;
+  font-size: 2em;
   color:#99ccff;;
 }
 .tile-hide{
