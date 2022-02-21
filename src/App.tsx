@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import NavigationHeader from "./components/NavigationHeader";
 import Tile from "./components/Tile";
 import { shuffle, divisionArray } from "./utils"
@@ -9,7 +9,7 @@ const App = () => {
     .fill(false)
     .map((_, index) => index));
   const defaultTiles = divisionArray(randomTiles, row)
-  const [tiles, setTiles] = useState(defaultTiles)
+  const [tiles, setTiles] = useState(defaultTiles);
 
   return <div id="slidingPuzzleWrap">
     <NavigationHeader />
