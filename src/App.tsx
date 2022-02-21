@@ -5,7 +5,10 @@ import { shuffle, divisionArray } from "./utils"
 
 const App = () => {
   const row = 4;
-  const defaultTiles = divisionArray(shuffle([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]), row)
+  const randomTiles = shuffle(new Array(Math.pow(row, 2))
+    .fill(false)
+    .map((_, index) => index));
+  const defaultTiles = divisionArray(randomTiles, row)
   const [tiles, setTiles] = useState(defaultTiles)
 
   return <div id="slidingPuzzleWrap">
