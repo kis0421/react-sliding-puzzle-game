@@ -1,7 +1,7 @@
 import * as React from "react";
 import classnames from "classnames";
 
-const Tile = (props: { tileNumber: number, tiles: number[][], setTiles: React.Dispatch<React.SetStateAction<number[][]>> }) => {
+const Tile = (props: { tileNumber: number, tiles: number[][], setTiles: (tiles: number[][]) => void }) => {
   const { tileNumber, tiles, setTiles } = props;
   const changeTile = () => {
     const currentRowIndex = tiles.findIndex((i) => i.includes(tileNumber));

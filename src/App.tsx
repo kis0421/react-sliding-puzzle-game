@@ -10,13 +10,17 @@ const App = () => {
     .map((_, index) => index));
   const defaultTiles = divisionArray(randomTiles, row)
   const [tiles, setTiles] = useState(defaultTiles);
+  const [moveCount, setMoveCount] = useState(0);
 
   return <div id="slidingPuzzleWrap">
-    <NavigationHeader />
+    <NavigationHeader moveCount={moveCount} />
     {tiles.map((puzzleWrap, index) =>
       <div className="puzzleRowWrap" key={index}>
         {puzzleWrap.map((tile) => {
-          return <Tile tileNumber={tile} key={tile} tiles={tiles} setTiles={setTiles} />
+          return <Tile tileNumber={tile} key={tile} tiles={tiles} setTiles={(tiles: number[][]) => {
+            setMoveCount(moveCount + 1)
+            setTiles(tiles);
+          }} />
         })}
       </div>)}
   </div>;
