@@ -1,8 +1,14 @@
 import * as React from "react";
 import classnames from "classnames";
 
-const Tile = (props: { tileNumber: number, tiles: number[][], setTiles: (tiles: number[][]) => void }) => {
-  const { tileNumber, tiles, setTiles } = props;
+const Tile = (props: {
+  tileNumber: number,
+  tiles: number[][],
+  isCompletePuzzle: boolean;
+  setTiles: (tiles: number[][]) => void
+}) => {
+  const { tileNumber, tiles, isCompletePuzzle, setTiles } = props;
+  console.log(isCompletePuzzle)
   const changeTile = () => {
     const currentRowIndex = tiles.findIndex((i) => i.includes(tileNumber));
     const currentColumnIndex = tiles[currentRowIndex].findIndex((i) => i === tileNumber);
@@ -23,8 +29,12 @@ const Tile = (props: { tileNumber: number, tiles: number[][], setTiles: (tiles: 
 
   }
   return <div
-    onClick={changeTile}
-    className={classnames("tile", { "tile-hide": tileNumber === 0 })} >
+    onClick={() => {
+      if (!isCompletePuzzle) {
+        changeTile()
+      }
+    }}
+    className={classnames("tile", { "tile-hide": tileNumber === 0 }, { "tile-done": isCompletePuzzle })} >
     <span>{tileNumber}</span>
   </div>
 }

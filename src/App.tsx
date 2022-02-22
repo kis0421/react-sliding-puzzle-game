@@ -5,22 +5,31 @@ import { shuffle, divisionArray } from "./utils"
 
 const App = () => {
   const row = 4;
+  // const randomTiles = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 0, 15]
   const randomTiles = shuffle(new Array(Math.pow(row, 2))
-    .fill(false)
-    .map((_, index) => index));
+  .fill(false)
+  .map((_, index) => index));
   const defaultTiles = divisionArray(randomTiles, row)
   const [tiles, setTiles] = useState(defaultTiles);
   const [moveCount, setMoveCount] = useState(0);
+  const isCompletePuzzle = !Boolean(tiles
+    .flat(1)
+    .find((i, index) => i !== 0 && i !== (index + 1)));
 
   return <div id="slidingPuzzleWrap">
     <NavigationHeader moveCount={moveCount} />
     {tiles.map((puzzleWrap, index) =>
       <div className="puzzleRowWrap" key={index}>
         {puzzleWrap.map((tile) => {
-          return <Tile tileNumber={tile} key={tile} tiles={tiles} setTiles={(tiles: number[][]) => {
-            setMoveCount(moveCount + 1)
-            setTiles(tiles);
-          }} />
+          return <Tile
+            tileNumber={tile}
+            key={tile}
+            tiles={tiles}
+            isCompletePuzzle={isCompletePuzzle}
+            setTiles={(tiles: number[][]) => {
+              setMoveCount(moveCount + 1)
+              setTiles(tiles);
+            }} />
         })}
       </div>)}
   </div>;
