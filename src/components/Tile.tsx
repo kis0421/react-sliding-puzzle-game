@@ -8,7 +8,6 @@ const Tile = (props: {
   setTiles: (tiles: number[][]) => void
 }) => {
   const { tileNumber, tiles, isCompletePuzzle, setTiles } = props;
-  console.log(isCompletePuzzle)
   const changeTile = () => {
     const currentRowIndex = tiles.findIndex((i) => i.includes(tileNumber));
     const currentColumnIndex = tiles[currentRowIndex].findIndex((i) => i === tileNumber);
