@@ -1,7 +1,7 @@
 {
   "name": "react-sliding-puzzle-game",
   "version": "1.0.0",
-  "description": "",
+  "description": "react sliding puzzle game",
   "main": "index.js",
   "homepage": "https://kis0421.github.io/react-sliding-puzzle-game/",
   "scripts": {
@@ -10,8 +10,17 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "react",
+    "react-sliding-puzzle-game",
+    "react-game",
+    "puzzle-game",
+    "sliding-puzzle"
+  ],
+  "author": {
+    "name": "Kim Minkyu",
+    "email": "kig0421@gmail.com"
+  },
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.3.1",
