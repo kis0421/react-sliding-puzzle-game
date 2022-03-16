@@ -10,3 +10,22 @@ export function divisionArray<T>(array: T[], unit: number) {
   }
   return tempArray;
 }
+
+export function getAfterChangeTiles(tiles: number[][], tileNumber: number) {
+  const currentRowIndex = tiles.findIndex((i) => i.includes(tileNumber));
+  const currentColumnIndex = tiles[currentRowIndex].findIndex((i) => i === tileNumber);
+  const currentIndexes = [currentRowIndex, currentColumnIndex];
+
+  const zeroRowIndex = tiles.findIndex((i) => i.includes(0));
+  const zeroColumnIndex = tiles[zeroRowIndex].findIndex((i) => !i);
+  const zeroIndexes = [zeroRowIndex, zeroColumnIndex];
+
+  if ((!Math.abs(currentIndexes[0] - zeroIndexes[0]) && Math.abs(currentIndexes[1] - zeroIndexes[1]) === 1)
+    || (Math.abs(currentIndexes[0] - zeroIndexes[0]) === 1 && !Math.abs(currentIndexes[1] - zeroIndexes[1]))) {
+    const newTiles = [...tiles];
+    newTiles[currentIndexes[0]][currentIndexes[1]] = 0;
+    newTiles[zeroIndexes[0]][zeroIndexes[1]] = tileNumber;
+
+    return newTiles;
+  }
+}
