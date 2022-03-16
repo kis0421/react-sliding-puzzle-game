@@ -34,6 +34,7 @@ export function getAfterChangeTiles(tiles: number[][], tileNumber: number): [num
     const newTiles = [...tiles];
     newTiles[currentIndexes[0]][currentIndexes[1]] = 0;
     newTiles[zeroIndexes[0]][zeroIndexes[1]] = tileNumber;
+    // TODO: moveDirection 차후 에니메이션 추가용 방향
     return [newTiles, moveDirection]
   }
 }

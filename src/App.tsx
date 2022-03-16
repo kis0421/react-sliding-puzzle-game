@@ -25,8 +25,9 @@ const App = () => {
             key={tile}
             isCompletePuzzle={isCompletePuzzle}
             setTiles={() => {
-              const newTiles = getAfterChangeTiles(tiles, tile);
-              if (newTiles) {
+              const afterChangeTiles = getAfterChangeTiles(tiles, tile);
+              if (afterChangeTiles) {
+                const [newTiles] = afterChangeTiles;
                 setMoveCount(moveCount + 1)
                 setTiles(newTiles);
               }
