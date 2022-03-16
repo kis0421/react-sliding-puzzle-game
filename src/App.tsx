@@ -1,7 +1,7 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import NavigationHeader from "./components/NavigationHeader";
 import Tile from "./components/Tile";
-import { shuffle, divisionArray } from "./utils"
+import { shuffle, divisionArray, getAfterChangeTiles } from "./utils"
 
 const App = () => {
   const row = 4;
@@ -23,11 +23,13 @@ const App = () => {
           return <Tile
             tileNumber={tile}
             key={tile}
-            tiles={tiles}
             isCompletePuzzle={isCompletePuzzle}
-            setTiles={(tiles: number[][]) => {
-              setMoveCount(moveCount + 1)
-              setTiles(tiles);
+            setTiles={() => {
+              const newTiles = getAfterChangeTiles(tiles, tile);
+              if (newTiles) {
+                setMoveCount(moveCount + 1)
+                setTiles(newTiles);
+              }
             }} />
         })}
       </div>)}
