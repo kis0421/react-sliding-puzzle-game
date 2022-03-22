@@ -9,7 +9,7 @@
 
 감사합니다.
 
-[demo](https://kis0421.github.io/react-sliding-puzzle-game/)
+[demo](https://react-sliding-puzzle-game.vercel.app/)
 
 ## 📃 보완할 점
 
