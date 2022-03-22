@@ -3,6 +3,7 @@
 ![sliding](https://user-images.githubusercontent.com/28751246/155862199-3a90ba5b-704d-47c3-a2e3-330199732c3c.gif)
 
 
+## 📃 개요
 
 1.0.0 버전을 기준으로 상태 관리 라이브러리를 사용하지 않고 react만 사용하여 제작했습니다.  
 차후 아래 내용들을 보완 및 추가 할 예정입니다.  
