@@ -60,3 +60,19 @@
 .tile-done {
   cursor: default
 }
+
+.gameBoardHeader {
+  height: 100px;
+}
+
+
+.gameBoardHeader>div {
+  margin: 4px 12px;
+  float: right;
+}
+
+.gameBoardHeader>div:last-child {
+  clear: both;
+  margin: 4px 12px;
+  color: green;
+}
